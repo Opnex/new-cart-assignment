@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Product list with cart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Product List with Cart</title>
+      <link rel="stylesheet" href="./styles/style.css">
+  </head>
+  <body>
+      <header>
+          <h1>Our Desserts</h1>
+      </header>
+      <main>
+          <!-- Product List Section -->
+          <section id="product-list" class="product-list"></section>
+  
+          <!-- Cart Section -->
+          <section class="cart">
+              <h2>Your Cart (<span id="cart-count">0</span>)</h2>
+              <div id="cart-items"></div>
+              <div class="cart-total">
+                  <p>Total: <span id="cart-total">$0.00</span></p>
+              </div>
+              <button id="confirm-order">Confirm Order</button>
+              <button id="start-new-order">Start New Order</button>
+          </section>
+      </main>
+  
+      <!-- Order Modal -->
+      <div id="order-modal" class="modal">
+          <div class="modal-content">
+              <h2>Order Summary</h2>
+              <div id="modal-cart-items"></div>
+              <p>Total: <span id="modal-total">$0.00</span></p>
+              <button id="close-modal">Close</button>
+          </div>
+      </div>
+  
+      <script src="./assets/script.js"></script>
+  </body>
+  </html>
+<script src="script.js"></script>
+</body>
+</html>
