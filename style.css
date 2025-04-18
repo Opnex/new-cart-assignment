@@ -37,9 +37,8 @@ main {
 .product-item {
   background-color: white;
   border-radius: 16px;
-  padding: 1rem;
+  padding: 0;
   text-align: left;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease;
 }
 
@@ -51,6 +50,7 @@ main {
   width: 100%;
   height: auto;
   border-radius: 12px;
+  border: 2px solid #e67e22;
   margin-bottom: 0.8rem;
 }
 
@@ -58,34 +58,76 @@ main {
   font-size: 1rem;
   margin: 0.5rem 0;
   font-weight: 600;
+  color: #000;
+  padding: 0 0.5rem;
 }
 
-.product-item p {
+.product-item p.price {
   font-size: 0.95rem;
-  color: #777;
-  font-weight: 500;
+  color: #e67e22;
+  font-weight: 600;
+  padding: 0 0.5rem;
 }
 
 /* Add to Cart Button */
-.product-item button {
+.product-item .add-to-cart {
   background-color: #fff;
   color: #333;
-  border: 1px solid #ddd;
+  border: 1px solid #e90a0a;
   padding: 0.5rem 1rem;
   border-radius: 25px;
   font-size: 0.9rem;
   font-weight: 500;
-  margin-top: 0.5rem;
-  display: inline-flex;
-  align-items: center;
+  margin-top: -21px;
+  margin-left: 50px;
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
   gap: 0.5rem;
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
-.product-item button:hover {
+.product-item .add-to-cart:hover {
   background-color: #f5f5f5;
   border-color: #000;
+}
+
+/* Counter Controls */
+.counter-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0.5rem;
+}
+
+.counter-controls button {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-controls button:hover {
+  background-color: #d35400;
+}
+
+.counter-controls span {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 /* Cart Section */
@@ -105,6 +147,16 @@ main {
   font-weight: 700;
 }
 
+.cart-empty {
+  text-align: center;
+  color: #777;
+}
+
+.cart-empty img {
+  width: 100px;
+  margin-bottom: 1rem;
+}
+
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -118,38 +170,17 @@ main {
   border-bottom: none;
 }
 
-/* Quantity Controls (if you use them) */
-.quantity-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.quantity-controls button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-
-.quantity-controls button:hover {
-  background-color: #d32f2f;
-}
-
 .cart-total {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #000;
-  text-align: right;
+  text-align: left;
   margin-top: 1rem;
 }
 
 /* Confirm Button */
-.cart button {
-  background-color: #8b2d1d;
+.cart #confirm-order {
+  background-color: #e67e22;
   color: white;
   border: none;
   padding: 0.8rem 1rem;
@@ -162,8 +193,8 @@ main {
   transition: background-color 0.2s ease;
 }
 
-.cart button:hover {
-  background-color: #6a2215;
+.cart #confirm-order:hover {
+  background-color: #d35400;
 }
 
 /* Carbon Neutral Badge */
@@ -206,28 +237,70 @@ main {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Modal Header */
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.modal-header .checkmark {
+  width: 24px;
+  height: 24px;
+}
+
 .modal-content h2 {
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .modal-content p {
   font-size: 1rem;
-  margin: 0.5rem 0;
+  color: #777;
+  margin-bottom: 1rem;
 }
 
-.modal-content button {
-  background-color: #8b2d1d;
+/* Modal Cart Items with Thumbnails */
+.modal-cart-items .cart-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-cart-items .cart-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.modal-cart-items .cart-item .item-details {
+  flex: 1;
+}
+
+.modal-cart-items .cart-item .item-total {
+  font-weight: 600;
+}
+
+/* Start New Order Button in Modal */
+#start-new-order-modal {
+  background-color: #e67e22;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
   border-radius: 25px;
-  cursor: pointer;
   font-size: 1rem;
-  margin-top: 1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  width: 100%;
   transition: background-color 0.2s ease;
 }
 
-.modal-content button:hover {
-  background-color: #6a2215;
+#start-new-order-modal:hover {
+  background-color: #d35400;
 }

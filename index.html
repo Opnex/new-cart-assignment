@@ -18,35 +18,47 @@
       <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
-      <header>
-          <h1>Our Desserts</h1>
-      </header>
-      <main>
-          <!-- Product List Section -->
-          <section id="product-list" class="product-list"></section>
-  
-          <!-- Cart Section -->
-          <section class="cart">
-              <h2>Your Cart (<span id="cart-count">0</span>)</h2>
-              <div id="cart-items"></div>
-              <div class="cart-total">
-                  <p>Total: <span id="cart-total">$0.00</span></p>
-              </div>
-              <button id="confirm-order">Confirm Order</button>
-              <button id="start-new-order">Start New Order</button>
-          </section>
-      </main>
-  
-      <!-- Order Modal -->
-      <div id="order-modal" class="modal">
-          <div class="modal-content">
-              <h2>Order Summary</h2>
-              <div id="modal-cart-items"></div>
-              <p>Total: <span id="modal-total">$0.00</span></p>
-              <button id="close-modal">Close</button>
-          </div>
-      </div>
-  
+   <header>
+        <h1>Our Desserts</h1>
+        <input type="text" id="search-input" placeholder="Search products..." />
+    </header>
+    <main>
+        <!-- Product List Section -->
+        <section id="product-list" class="product-list"></section>
+
+        <!-- Cart Section -->
+        <section class="cart">
+            <h2>Your Cart (<span id="cart-count">0</span>)</h2>
+            <div id="cart-empty" class="cart-empty">
+                <img src="/images/illustration-empty-cart.svg" alt="Empty Cart">
+                <p>Your added items will appear here</p>
+            </div>
+            <div id="cart-items" style="display: none;"></div>
+            <div class="cart-total" style="display: none;">
+                <p>Order Total: <span id="cart-total">$0.00</span></p>
+            </div>
+            <div class="badge" style="display: none;">This is a carbon-neutral delivery</div>
+            <button id="confirm-order" style="display: none;">Confirm Order</button>
+        </section>
+    </main>
+
+    <!-- Order Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <svg class="checkmark" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"></path>
+                </svg>
+                <h2>Order Confirmed</h2>
+            </div>
+            <p>We hope you enjoy your food!</p>
+            <div id="modal-cart-items" class="modal-cart-items"></div>
+            <p>Order Total: <span id="modal-total">$0.00</span></p>
+            <div class="badge">This is a carbon-neutral delivery</div>
+            <button id="start-new-order-modal">Start New Order</button>
+        </div>
+    </div>
+
       <script src="./assets/script.js"></script>
   </body>
   </html>
