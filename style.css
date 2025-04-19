@@ -304,3 +304,139 @@ main {
 #start-new-order-modal:hover {
   background-color: #d35400;
 }
+
+
+/* Media Query for Tablets (768px and below) */
+@media (max-width: 768px) {
+  main {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+  }
+
+  .product-list {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+  }
+
+  .cart {
+      max-width: 100%;
+      width: 90%;
+  }
+
+  .product-item {
+      padding: 0.5rem;
+  }
+
+  .product-item h3 {
+      font-size: 0.9rem;
+  }
+
+  .product-item p.price {
+      font-size: 0.85rem;
+  }
+
+  .product-item .add-to-cart {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+  }
+
+  .counter-controls button {
+      width: 25px;
+      height: 25px;
+      font-size: 0.75rem;
+  }
+
+  .counter-controls span {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+  }
+
+  .cart h2 {
+      font-size: 1.2rem;
+  }
+
+  .cart-total {
+      font-size: 1rem;
+  }
+
+  .cart #confirm-order {
+      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
+  }
+}
+
+/* Media Query for Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  main {
+      padding: 1rem;
+  }
+
+  .product-list {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+  }
+
+  .product-item img {
+      border-radius: 8px;
+  }
+
+  .product-item h3 {
+      font-size: 0.85rem;
+  }
+
+  .product-item p.price {
+      font-size: 0.8rem;
+  }
+
+  .product-item .add-to-cart {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.6rem;
+  }
+
+  .counter-controls button {
+      width: 20px;
+      height: 20px;
+      font-size: 0.7rem;
+  }
+
+  .counter-controls span {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.75rem;
+  }
+
+  .cart {
+      padding: 1rem;
+  }
+
+  .cart h2 {
+      font-size: 1rem;
+  }
+
+  .cart-total {
+      font-size: 0.9rem;
+  }
+
+  .cart #confirm-order {
+      font-size: 0.8rem;
+      padding: 0.5rem 0.7rem;
+  }
+
+  .modal-content {
+      padding: 1.5rem;
+      width: 95%;
+  }
+
+  .modal-content h2 {
+      font-size: 1.5rem;
+  }
+
+  .modal-content p {
+      font-size: 0.9rem;
+  }
+
+  #start-new-order-modal {
+      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
+  }
+}
